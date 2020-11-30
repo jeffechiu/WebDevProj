@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
+
+.bg-dark-green {
+	background-color: #89AB0D;
+}
+
+/* ------------------------------------------
+					NAVBAR 
+------------------------------------------- */
+
+.navbar-title {
+	font-family: 'Arima Madurai', cursive;
+	font-weight: bolder;
+	font-size: 1.5em;
+}
+
+.search {
+	margin-right: 1vw;
+}
