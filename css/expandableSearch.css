@@ -1,0 +1,49 @@
+
+/* body{
+    background: radial-gradient(#80b1d6,#0e83cd) no-repeat;
+    color: #fff;
+    height: 100vh;
+} */
+/* section{
+    padding: 5em;
+} */
+::-webkit-input-placeholder { 
+  color: #fff;
+}
+::-moz-placeholder { 
+  color: #fff;
+}
+.search-focus {
+    background: url(http://www.iconsdb.com/icons/preview/white/search-12-xxl.png) no-repeat left;
+    border: 1px solid #ccc;
+    outline: none;
+    background-size: 22px;
+    background-position: 13px;
+    border-radius: 1em;/* 50px; */
+    width: 10%;
+    height: 10%;
+    padding: 20px;
+    transition: all .5s;
+}
+.search-focus:focus{
+    width: 300px;
+    padding-left: 50px;
+}
+
+
+.search-click {
+position: relative;
+overflow: hidden;
+height: 10%;
+}  
+
+.search-click input {
+background: transparent;
+
+outline: none;
+position: absolute;
+width: 10%;
+height: 20%;
+left: 0%;
+
+}

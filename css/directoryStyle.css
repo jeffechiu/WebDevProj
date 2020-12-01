@@ -3,23 +3,41 @@
     (light yellow) #f7f14a;
      (light green) #a4cc44;
      (dark green) #89AB0D; */
+
+body{
+    background-color: #a4cc44;
+}
 #mainHeading{
     margin-top: 2em;
 }
 #mainHeading h1{
     text-align: center;
+    font-size: 400%;
     font-family: 'Arima Madurai';
    
 }
 
-.container .row{
+.center{
+    justify-content: center;
+    text-align: center;
+}
+
+.goLeft{
+    text-align: left;
+}
+
+.goRight{
+    text-align: right;
+}
+
+.container, .row{
     justify-content: center;
 }
 
-.card{
-    margin: 1em;
+.directoryCard{
+    margin: 0.75em;
 }
-.card, .card-header{
+.directoryCard, .card-header{
     background-color: #89AB0D;
 }
 
@@ -31,15 +49,89 @@
 
 .card-text{
     margin: 0.01em;
-    font-size: 120%
+    font-size: 110%;
+    
 }
 
-.card-img-left{
-    width:10%;
-    height:40%;
+.card-body{
+    font-size: 1vw;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .imageDirectoryProfiles{
-    width:100%;
+    width:120%;
     height:100%;
 }
+
+.card-block{
+    margin-left: 5%;
+}
+
+#directorySearch{
+    margin-top: 2em;
+}
+
+#entityFilter{
+    margin: 0.5em;
+}
+
+.entity{
+    text-align: center;
+}
+
+.entity:hover {
+    background-color: #f7f14a;
+    color: #89AB0D;
+}
+
+.entity2:hover {
+    background-color: #f7f14a;
+    color: #89AB0D;
+}
+
+.entityActive{
+    background-color: #F9DB22;
+}
+
+
+#pageNav button{
+    background:none;
+    border:none; 
+}
+
+#pageNav button:hover{
+    text-decoration: underline;
+    color: #89AB0D;
+}
+
+#dropdownPhone{
+    display: none;
+}
+
+@media (max-width: 768px){
+    #directorySearch, #entityFilter{
+        display: none;
+    }
+
+    .imageDirectoryProfiles{
+        width:50%;
+        height:100%;
+    }
+
+    .directoryEntry{
+        text-align: center;
+    }
+
+    #dropdownPhone{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .middlePages{
+        display: none;
+    }
+
+}
+

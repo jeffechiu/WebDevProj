@@ -8,8 +8,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/directoryStyle.css"> 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/expandableSearch.css">
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Braddock Directory</title>
   </head>
   <!-- ensure that when clicking anywhere in body, drop down menu closes for search -->
@@ -68,60 +76,184 @@
        </nav>
     </header>
   
-    <div class = "container">
+      <div class = "container">
         <div class = "row">
-            <div id = "mainHeading" class = "col-xl-12">
+            <div id = "mainHeading" class = "col-xl-12 col-md-12">
                 <h1>Directory</h1>
             </div>
+      </div>
+
+      <div class="row no-gutters mt-3 align-items-center" id = "directorySearch">
+          <div class="col col-xl-8 col-md-8">
+              <input id = "myInput" class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="Search Directory..." onkeyup = "search()">
+          </div>
+          <div class="col-auto">
+              <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+                  <i class="fa fa-search"></i>
+              </button>
+          </div>
+      </div>
+
+      <div class="row dropdown" id = "dropdownPhone">
+        <div class = "col-4">
+          <button class="btn btn-secondary dropdown-toggle entity2 entityActive" type="button" id="dropdownMenuButton entityAll" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick = "filterEntities2(this.id)">
+            All
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item entity2" id = "entityPeople" href="#" onclick = "filterEntities2(this.id)">People</a>
+            <a class="dropdown-item entity2" id = "entityNonprofits" href="#" onclick = "filterEntities2(this.id)">Non-Profits</a>
+            <a class="dropdown-item entity2" id = "entityBusinesses" href="#" onclick = "filterEntities2(this.id)">Businesses</a>
+          </div>
         </div>
 
-        <div class = "row">
-            <div class="card col-xl-2">
+        <div class = "col-4">
+      
+            <input type="text" class="search-focus" name="" placeholder="Search here...">
+     
+
+        </div>
+       
+      </div>
+     
+      
+
+        <div class = "row" id = "entityFilter">
+            <div class="card col-xl-2 col-md-2 entity entityActive" id = "entityAll" onclick = "filterEntities(this.id)">
                 <div class="card-body">All</div>
             </div>
-            <div class="card col-xl-2">
+            <div class="card col-xl-2 col-md-2 entity" id = "entityPeople" onclick = "filterEntities(this.id)">
                 <div class="card-body">People</div>
             </div>
-            <div class="card col-xl-2">
+            <div class="card col-xl-2 col-md-2 entity" id = "entityNonprofits" onclick = "filterEntities(this.id)">
                 <div class="card-body">Non-Profits</div>
             </div>
-            <div class="card col-xl-2">
+            <div class="card col-xl-2 col-md-2 entity" id = "entityBusinesses" onclick = "filterEntities(this.id)">
                 <div class="card-body">Businesses</div>
             </div>
         </div>
         
 
 
-        <div class = "row">
-
-            <div class="card flex-row flex-wrap col-xl-10">
-                <div class="card-header border-0 col-xl-2">
+        <div class = "row directoryEntry directoryEntryNonprofit">
+            <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                <div class="card-header border-0 col-xl-2 col-md-2">
                     <img src="imgs/directory-imgs/AMVETS_Logo.png" class = "imageDirectoryProfiles" alt="">
                     
                 </div>
-                <div class="card-block px-2 col-xl-8">
+                <div class="card-block px-2 col-xl-8 col-md-8">
                     <h4 class="card-title">AMVETS</h4>
                     <p class="card-text">1135 Wolfe Ave, Braddock, PA,</p>
                     <p class="card-text">(412) 823 - 4410 | help@amvetspa.org</p>
                 </div>
               
             </div>
-
         </div>
 
-        <div class = "row">
+        <div class = "row directoryEntry directoryEntryBusiness">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/BellSupply_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Bell Plumbing Supply Company</h4>
+                  <p class="card-text">514 Corey Avenue, Braddock, PA,</p>
+                  <p class="card-text">(412) 351 - 0454 | contact@bellsupply.co</p>
+              </div>
+            
+          </div>
+        </div>
 
-            <div class="card flex-row flex-wrap col-xl-10">
-                <div class="card-header border-0 col-xl-2">
+        <div class = "row directoryEntry directoryEntryNonprofit">
+            <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                <div class="card-header border-0 col-xl-2 col-md-2">
                     <img src="imgs/directory-imgs/Braddock_Redux_Logo.png" class = "imageDirectoryProfiles" alt="">
                 </div>
-                <div class="card-block px-2 col-xl-8">
+                <div class="card-block px-2 col-xl-8 col-md-8">
                     <h4 class="card-title">Braddock Redux</h4>
                     <p class="card-text">416 Library Street, Braddock, PA,</p>
                     <p class="card-text">(412) 913 - 1391 | help@braddockredux.com</p>
                 </div>
               
             </div>
+        </div>
+
+
+
+        <div class = "row directoryEntry directoryEntryPeople">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/Desmond_Lawrence_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Desmond Arnold</h4>
+                  <p class="card-text">Consultant at Deloitte</p>
+                  <p class="card-text">(123) 345-6789 | darnold@deloitte.com</p>
+              </div>
+          </div>
+        </div>
+
+        <div class = "row directoryEntry directoryEntryNonprofit">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/GVCS_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Greater Valley Community Services</h4>
+                  <p class="card-text">300 Holland Avenue, Braddock, PA,</p>
+                  <p class="card-text">(412) 351 - 7056 | contact@greatervalley.org</p>
+              </div>
+            
+          </div>
+        </div>
+
+
+        <div class = "row directoryEntry directoryEntryPeople">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/John_Fetterman_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">John Fetterman</h4>
+                  <p class="card-text">Lieutenant Governor of Pennsylvania, Former Mayor of Braddock</p>
+                  <p class="card-text">(717) 787-3300 | https://johnfetterman.com</p>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class = "row directoryEntry directoryEntryBusiness">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/Teds_Auto_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Ted's Auto</h4>
+                  <p class="card-text">225 1st Street, Braddock, PA,</p>
+                  <p class="card-text">(412) 351 - 7717 | http://tedsauto.com/</p>
+              </div>
+            
+          </div>
+        </div>
+
+      
+
+        <div class = "row" id = "pageNav">
+          <div class = "col-xl-1 col-md-1 col-2 goRight">
+            <button class="link">Prev</button>
+          </div>
+          <div class = "col-xl-2 col-md-4 center middlePages">
+            |
+            <button class="link">1</button>
+            <button class="link">2</button>
+            <button class="link">3</button>
+            . . .
+            <button class="link">8</button>
+            |
+          </div>
+          <div class = "col-xl-1 col-md-1 col-2 goLeft">
+            <button class="link">Next</button>
+          </div>
+          
 
         </div>
 
@@ -144,8 +276,9 @@
     -->
   
     <!-- Javascript files used -->
-    <!-- <script type = "text/javascript" src = "js/problem1.js"></script>  -->
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src = "js/directory.js"></script>  
   </body>
 </html>
