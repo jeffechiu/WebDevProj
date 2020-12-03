@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
 
-.bg-dark-green {
+header {
 	background-color: #89AB0D;
+}
+
+section {
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+.section-split {
+	width: 80%;
+	text-align: center;
+	border-width: 3px;
 }
 
 /* ------------------------------------------
@@ -16,4 +27,118 @@
 
 .search {
 	margin-right: 1vw;
+}
+
+/* ------------------------------------------
+				   CAROUSEL 
+------------------------------------------- */
+
+.carousel h1 {
+	font-family: 'Arima Madurai', cursive;
+}
+
+/* ------------------------------------------
+					WELCOME 
+------------------------------------------- */
+
+#welcome img {
+	width: 100%;
+	height: 100%;
+
+	//box-shadow: 10px 10px 10px #F9DB22;
+}
+
+#welcome h1 {
+	font-family: 'Arima Madurai', cursive;
+	color: #89AB0D;
+}
+
+.welcome-img {
+	text-align: center;
+}
+
+/* ------------------------------------------
+					WELCOME 
+------------------------------------------- */
+
+#membership .card-text {
+	text-align: left;
+}
+
+#membership h3 {
+	font-family: 'Arima Madurai', cursive;
+	color: #89AB0D;
+} 
+
+#membership .btn-grn {
+	background-color: #89AB0D;
+}
+
+/* ------------------------------------------
+				OF THE MONTH 
+------------------------------------------- */
+
+#ofTheMonth .box {
+	text-align: center;
+}
+
+#ofTheMonth .card {
+
+}
+
+#ofTheMonth .crd-img {
+	padding: 0vw 1.2vw 0vw;
+}
+
+#ofTheMonth h3 {
+	font-family: 'Arima Madurai', cursive;
+	color: #89AB0D;
+}
+
+/* ------------------------------------------
+			        NEWS 
+------------------------------------------- */
+
+#news h3 {
+	font-family: 'Arima Madurai', cursive;
+	color: #89AB0D;
+}
+
+#news .box {
+	text-align: center;
+}
+
+#news .box img {
+	width: 100%;
+	height: 70%;
+}
+
+/* ------------------------------------------
+				   CALENDAR 
+------------------------------------------- */
+
+#calendar h3 {
+	font-family: 'Arima Madurai', cursive;
+	color: #89AB0D;
+}
+
+/* ------------------------------------------
+				  FOOTER
+------------------------------------------- */
+
+footer {
+	background-color: #89AB0D;
+}
+
+footer .content-top {
+	padding-top: 5vh;
+}
+
+footer .copyright {
+	text-align: center;
+	padding-bottom: 5vh;
+}
+
+footer a {
+	color: white;
 }

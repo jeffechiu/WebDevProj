@@ -10,12 +10,15 @@
         <link rel="stylesheet" href="css/styles.css">
         <!-- Resources CSS -->
         <link rel="stylesheet" href="css/resources.css">
+        <!-- Arima Madurai Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Kumar+One&display=swap" rel="stylesheet">
 
         <title>Braddock Region Chamber of Commerce</title>
     </head>
     <body>
         <header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-dark-green">
+                <div class="container">
 			    <a class="navbar-brand navbar-title" href="index.html">BRCC</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				   <span class="navbar-toggler-icon"></span>
@@ -37,17 +40,17 @@
 							 Resources
 						    </a>
 						    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="resources.html#starting-business">Starting a Business</a>
+								<a class="dropdown-item" href="resources.html">Starting a Business</a>
 								<a class="dropdown-item" href="resources.html#starting-nonprofit">Starting a Nonprofit</a>
 								<a class="dropdown-item" href="resources.html#criminal-record-recovery">Recovering From a Criminal Record</a>
-								<a class="dropdown-item" href="#">Recent News and Events</a>
+								<a class="dropdown-item" href="resources.html#recent-news">Recent News and Events</a>
 						    </div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="directory.html">Directory</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Login</a>
+							<a class="nav-link" href="dashboard.html">Login</a>
 						</li>
 				    </ul>
 				    <form class="form-inline search">
@@ -65,10 +68,11 @@
 						</div>
 				   </div>
 				</div>
+            </div>
 		    </nav>
 		</header>
         <h1>General Resources</h1>
-        <div class="container">
+        <div class="container-lg">
             <div class="row">
                 <div class="col">
                     <div class="resource-box" id="starting-business">
@@ -303,7 +307,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col">
                     <div class="resource-box" id="starting-nonprofit">
                         <h3>Starting a Nonprofit</h3>
@@ -537,7 +541,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col">
                     <div class="resource-box" id="criminal-record-recovery">
                         <h3>Recovering From a Criminal Record</h3>
@@ -731,12 +735,83 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col">
-
+                    <div class="resource-box" id="recent-news">
+                        <h3>Recent News and Events</h3>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="card flex-row flex-wrap col-11">
+                                        <div class="card-header col-xl-3 col-md-3">
+                                            <img src="imgs/resources-imgs/picture-icon.png" alt="">
+                                        </div>
+                                        <div class="card-block px-2 col-9">
+                                            <h4 class="card-title">New Classes Coming Soon</h4>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..<a href="placeholder.html">Read More</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="card flex-row flex-wrap col-11 add-top-margin">
+                                        <div class="card-header col-xl-3 col-md-3">
+                                            <img src="imgs/resources-imgs/picture-icon.png" alt="">
+                                        </div>
+                                        <div class="card-block px-2 col-9">
+                                            <h4 class="card-title">New Family Business in Braddock</h4>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..<a href="placeholder.html">Read More</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="card flex-row flex-wrap col-11 add-top-margin">
+                                        <div class="card-header col-xl-3 col-md-3">
+                                            <img src="imgs/resources-imgs/picture-icon.png" alt="">
+                                        </div>
+                                        <div class="card-block px-2 col-9">
+                                            <h4 class="card-title">BRCC Family Growing Quickly</h4>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..<a href="placeholder.html">Read More</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <iframe src="https://calendar.google.com/calendar/embed?height=550&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=cW45cmNoMzkxNzU4bjA4djMycWI0MHZ2aGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%2333B679&amp;color=%233F51B5" width="800" height="540" frameborder="0" scrolling="no"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div class="container">
+                <div class="content-top row justify-content-around">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <h5>Contact Us</h5>
+                        <p>
+                            Phone: 123-456-7890<br />
+                            Email: contact@brcc.com<br />
+                            Address: 1234 Chamber Rd.<br />
+                            Braddock, PA 15104
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <h5>Stay Connected!</h5>
+                        <p>Newsletter Sign-Up:</p>
+                        <form class="form-inline search">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            
+                        </form>
+                        <br />
+                        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div><br />
+                <div class="copyright">
+                    <p>Copyright © 2020 Braddock Region Chamber of Commerce </p>
+                </div>
+            </div>
+        </footer>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     </body>
