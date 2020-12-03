@@ -138,3 +138,7 @@ footer .copyright {
 	text-align: center;
 	padding-bottom: 5vh;
 }
+
+footer a {
+	color: white;
+}
