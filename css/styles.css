@@ -33,22 +33,22 @@ section {
 	font-size: 2em;
 }
 
+.input-group-text, #language, .dropdown-item:hover {
+	background-color: #F9DB22;
+}
+
 .search {
 	font-family: 'Roboto', sans-serif;
 	margin-left: 1vw;
 	margin-right: 1vw;
 }
 
-.search a {
+.search a, #language {
 	color: black;
 }
 
 .dropdown-menu {
 	font-family: 'Roboto', sans-serif;
-}
-
-.dropdown-item:hover {
-	background-color: #F9DB22;
 }
 
 /* ------------------------------------------
