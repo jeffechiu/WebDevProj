@@ -22,15 +22,33 @@ section {
 /* ------------------------------------------
 					NAVBAR 
 ------------------------------------------- */
+.navbar {
+	font-family: 'Arima Madurai', cursive;
+	font-weight: bold;
+	font-size: 1.10em;
+}
 
 .navbar-title {
-	font-family: 'Arima Madurai', cursive;
 	font-weight: bolder;
 	font-size: 2em;
 }
 
 .search {
+	font-family: 'Roboto', sans-serif;
+	margin-left: 1vw;
 	margin-right: 1vw;
+}
+
+.search a {
+	color: black;
+}
+
+.dropdown-menu {
+	font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-item:hover {
+	background-color: #F9DB22;
 }
 
 /* ------------------------------------------
