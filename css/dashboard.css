@@ -17,7 +17,7 @@ img, .play {
 }
 
 .card {
-    background-color: #F9DB22;
+    border: 2px solid #A4CC44;
 }
 
 iframe {
