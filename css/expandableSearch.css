@@ -14,20 +14,23 @@
   color: #fff;
 }
 .search-focus {
-    background: url(http://www.iconsdb.com/icons/preview/white/search-12-xxl.png) no-repeat left;
-    border: 1px solid #ccc;
+    background: url("../imgs/directory-imgs/magnifyingGlass.png") no-repeat left;
+    border: 1px solid black;
+    background-color: #F9DB22;
     outline: none;
     background-size: 22px;
-    background-position: 13px;
+    background-position: 10px;
     border-radius: 1em;/* 50px; */
     width: 10%;
     height: 10%;
     padding: 20px;
     transition: all .5s;
 }
+
 .search-focus:focus{
-    width: 300px;
+    width: 200px;
     padding-left: 50px;
+    background-color: white;
 }
 
 

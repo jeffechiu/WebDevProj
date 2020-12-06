@@ -39,6 +39,7 @@
 }
 .directoryCard, .card-header{
     background-color: #89AB0D;
+    border-color: black;
 }
 
 .card-title{
@@ -54,18 +55,28 @@
 }
 
 .card-body{
-    font-size: 1vw;
+    font-size: 1.15vw;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
 }
 
 .imageDirectoryProfiles{
     width:120%;
     height:100%;
+    vertical-align: center;
+    /* width: 100%;
+    max-width: 120%;
+    height: auto; */
+}
+
+.card-header img{
+    border: 5px solid #F9DB22;
 }
 
 .card-block{
     margin-left: 5%;
+    font-size: 1em;
 }
 
 #directorySearch{
@@ -109,13 +120,32 @@
     display: none;
 }
 
+
+
+@media (min-width: 769px) and (max-width: 991px){
+    .imageDirectoryProfiles{
+        width:170%;
+        height:auto;
+        vertical-align: center;
+        /* width: 100%;
+        max-width: 120%;
+        height: auto; */
+    }
+
+    .card-block{
+        margin-left: 5%;
+        margin-bottom: 1%;
+    }
+
+}
+
 @media (max-width: 768px){
     #directorySearch, #entityFilter{
         display: none;
     }
 
     .imageDirectoryProfiles{
-        width:50%;
+        width:40%;
         height:100%;
     }
 
