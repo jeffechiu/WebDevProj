@@ -40,6 +40,48 @@ function search(){
     return;
 }
 
+function search2(){
+    
+    var input = document.getElementById("myInput2");
+    var entries = document.getElementsByClassName("directoryEntry");
+    var entities = document.getElementsByClassName("entity");
+    var chosenType = ["directoryEntry", "directoryEntryPeople", "directoryEntryNonprofit", "directoryEntryBusiness"]
+
+
+    if (input.value == ""){
+
+        for (var i = 0; i < entities.length; i++) {
+            if (entities[i].classList[entities[i].classList.length-1] == "entityActive"){
+                for (var j = 0; j < entries.length; j++){
+                    if (i == 0 || entries[j].classList[entries[j].classList.length-1] == chosenType[i]){
+                        entries[j].style.display = "flex";
+                    }
+                }
+            }
+            
+        }
+        return;
+    }
+    var filter = input.value.toUpperCase();
+    
+   
+    for (var i = 0; i < entries.length; i++) {
+        if (entries[i].style.display != "none"){
+            a = entries[i].getElementsByClassName("card-title")[0];
+            txtValue = a.textContent || a.innerText;
+    
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              entries[i].style.display = "flex";
+            } else {
+              entries[i].style.display = "none";
+            }
+
+        }
+      
+      }
+    return;
+}
+
 function filterEntities(id){
     // window.onclick = e => {
         

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /* Colors   (gold) #F9DB22;
     (light yellow) #f7f14a;
      (light green) #a4cc44;
@@ -40,12 +41,14 @@
 .directoryCard, .card-header{
     background-color: #89AB0D;
     border-color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card-title{
     margin-top: 0.6em;
     margin-bottom: 0.5em;
     font-size: 170%;
+    
 }
 
 .card-text{
