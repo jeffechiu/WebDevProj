@@ -222,13 +222,55 @@
               <div class="card-block px-2 col-xl-8 col-md-8">
                   <h4 class="card-title">John Fetterman</h4>
                   <p class="card-text">Lieutenant Governor of Pennsylvania, Former Mayor of Braddock</p>
-                  <p class="card-text">(717) 787-3300 | https://johnfetterman.com</p>
+                  <p class="card-text">(717) 787 - 3300 | https://johnfetterman.com</p>
               </div>
             
           </div>
         </div>
 
-        <div class = "row directoryEntry directoryEntryBusiness">
+        <div class = "row de2 directoryEntry directoryEntryPeople">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/Mark_Brown_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Mark Brown</h4>
+                  <p class="card-text">Freshman at Univeristy of Pittsburgh, Major: Computer Science</p>
+                  <p class="card-text">(123) 456 - 7890 | markb@upitt.edu</p>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class = "row de2 directoryEntry directoryEntryBusiness">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/RAH_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Right At Home Care Facility</h4>
+                  <p class="card-text">1514 Electric Avenue, East Pittsburgh, PA,</p>
+                  <p class="card-text">(412) 824 - 0700 | https://www.rightathome.net</p>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class = "row de2 directoryEntry directoryEntryNonprofit">
+          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+              <div class="card-header border-0 col-xl-2 col-md-2">
+                  <img src="imgs/directory-imgs/SB_Logo.png" class = "imageDirectoryProfiles" alt="">
+              </div>
+              <div class="card-block px-2 col-xl-8 col-md-8">
+                  <h4 class="card-title">Steven Breaston Foundation</h4>
+                  <p class="card-text">1735 East Carson Street, North Braddock, PA,</p>
+                  <p class="card-text">info@stevenbreastonfoundation.com | https://stevenbreastonfoundation.com/</p>
+              </div>
+            
+          </div>
+        </div>
+
+        <div class = "row de2 directoryEntry directoryEntryBusiness">
           <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
               <div class="card-header border-0 col-xl-2 col-md-2">
                   <img src="imgs/directory-imgs/Teds_Auto_Logo.png" class = "imageDirectoryProfiles" alt="">
@@ -244,21 +286,23 @@
 
       
 
+      
+
         <div class = "row" id = "pageNav">
           <div class = "col-xl-1 col-md-1 col-2 goRight">
-            <button class="link">Prev</button>
+            <button class="link" onclick = "showFirstPage()">Prev</button>
           </div>
           <div class = "col-xl-2 col-md-4 center middlePages">
             |
-            <button class="link">1</button>
-            <button class="link">2</button>
+            <button class="link" onclick = "showFirstPage()">1</button>
+            <button class="link" onclick = "showSecondPage()">2</button>
             <button class="link">3</button>
             . . .
             <button class="link">8</button>
             |
           </div>
           <div class = "col-xl-1 col-md-1 col-2 goLeft">
-            <button class="link">Next</button>
+            <button class="link" onclick = "showSecondPage()">Next</button>
           </div>
           
 
