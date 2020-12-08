@@ -55,13 +55,17 @@ section {
 	background-color: #F9DB22;
 }
 
+.navbar-title {
+	margin-left: 5%;
+}
+
 #logo-subtitle {
 	margin-left: -25%;
 	font-size: 0.30em;
 }
 
 /* Hide the logo subtitle on small devices */
-@media (max-width: 576px) { 
+@media (max-width: 600px) { 
 	#logo-subtitle {
 		display: none;
 	}
