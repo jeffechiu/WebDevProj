@@ -6,22 +6,52 @@ h1 {
     text-align: center;
 }
 
-img, .play {
+.play {
     width: 60px;
     display: block;
     margin: auto;
 }
 
+.card-header {
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    height: 100%;
+}
+
+img {
+    margin-top: 2%;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.profile {
+    border: 5px solid #F9DB22; 
+}
+
+.progress {
+    border: 1px solid #000000;
+}
+
 .progress-bar {
-    background-color: #A4CC44;
+    color: black;
+    background-color: #F9DB22; 
+    border-right: 1px solid #000000; 
 }
 
 .card {
-    border: 2px solid #A4CC44;
+    background-color: #A4CC44;
+    border: 1px solid #000000;
+    padding: 10px;
 }
 
 iframe {
     width: 90%;
+}
+
+#first-row, #second-row {
+    margin-top: 40px;
 }
 
 @media (min-width: 576px) { 
@@ -32,11 +62,20 @@ iframe {
 
 @media (max-width: 575px) { 
     h1 {
-		font-size: 300%;
+        font-size: 300%;
     }
 
 	h3 {
         margin-top: 40px;
         font-size: 1.5em;
     }
+
+    #first-row, #second-row {
+        margin-top: 15px;
+    }
+
+    .profile {
+        max-width: 70%;
+    }
+
 }
