@@ -188,6 +188,12 @@ section {
 
 footer .signup {
 	margin-left: 0px;
+	justify-content: flex-start;
+}
+
+//for directory
+footer .row {
+	justify-content: flex-start;
 }
 
 footer {
