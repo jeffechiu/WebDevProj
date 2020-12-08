@@ -55,6 +55,18 @@ section {
 	background-color: #F9DB22;
 }
 
+#logo-subtitle {
+	margin-left: -25%;
+	font-size: 0.30em;
+}
+
+/* Hide the logo subtitle on small devices */
+@media (max-width: 576px) { 
+	#logo-subtitle {
+		display: none;
+	}
+}
+
 /* ------------------------------------------
 				   CAROUSEL 
 ------------------------------------------- */
