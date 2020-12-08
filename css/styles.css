@@ -186,6 +186,10 @@ section {
 				  FOOTER
 ------------------------------------------- */
 
+footer .signup {
+	margin-left: 0px;
+}
+
 footer {
 	font-family: "Arima Madurai", cursive;
 	background-color: #89AB0D;
