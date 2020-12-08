@@ -23,3 +23,15 @@ img, .play {
 iframe {
     width: 90%;
 }
+
+@media (min-width: 576px) { 
+    #events {
+        text-align: center;
+    }
+}
+
+@media (max-width: 575px) { 
+	h3 {
+		margin-top: 40px;
+	}
+}

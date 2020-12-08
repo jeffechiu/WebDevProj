@@ -214,3 +214,9 @@ footer .btn:hover {
 #email {
 	font-family: 'Roboto', sans-serif;
 }
+
+@media (max-width: 575px) { 
+	#stay-connected {
+		margin-top: 40px;
+	}
+}

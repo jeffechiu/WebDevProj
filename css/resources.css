@@ -8,6 +8,10 @@ h1 {
     text-align: center;
 }
 
+h4 {
+    font-size: 1.40em;
+}
+
 img {
     width: 60px;
     display: block;
@@ -15,13 +19,14 @@ img {
 }
 
 .nav-tabs .nav-link {
-    background-color: #ccc;
+    color: black;
+    background-color: #F9DB22;
 }
 
 .resource-box {
     padding: 20px;
     background-color: #A4CC44;
-    height: 500px;
+    height: auto;
     margin-top: 40px;
 }
 
@@ -29,14 +34,10 @@ img {
     background-color: #FFFFFF;
 }
 
-.scroll {
-    position: absolute;
-    top: 149px;
-    bottom: 0;
-    left: 35px;
-    right: 35px;
+.tab-pane{
+    height: 350px;
     overflow-y: scroll;
-    margin-bottom: 20px;
+    width: 100%;
 }
 
 .media {
