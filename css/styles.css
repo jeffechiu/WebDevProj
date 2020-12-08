@@ -71,15 +71,18 @@ section {
 	}
 }
 
+@media (max-width: 768px) { 
+	#language {
+		margin-top: 20px;
+	}
+}
+
 /* ------------------------------------------
 				   CAROUSEL 
 ------------------------------------------- */
 
 .carousel h1 {
 	font-family: 'Arima Madurai', cursive;
-}
-
-.carous-img {
 }
 
 /* ------------------------------------------
@@ -191,7 +194,7 @@ footer .signup {
 	justify-content: flex-start;
 }
 
-//for directory
+/* for directory */
 footer .row {
 	justify-content: flex-start;
 }
