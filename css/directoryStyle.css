@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /* Colors   (gold) #F9DB22;
     (light yellow) #f7f14a;
      (light green) #a4cc44;
      (dark green) #89AB0D; */
 
-body{
+/* body{
     background-color: #a4cc44;
-}
+} */
 #mainHeading{
     margin-top: 2em;
 }
 #mainHeading h1{
     text-align: center;
     font-size: 400%;
+    font-weight: 600;
     font-family: 'Arima Madurai';
    
 }
@@ -39,12 +41,15 @@ body{
 }
 .directoryCard, .card-header{
     background-color: #89AB0D;
+    border-color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card-title{
     margin-top: 0.6em;
     margin-bottom: 0.5em;
     font-size: 170%;
+    
 }
 
 .card-text{
@@ -54,18 +59,28 @@ body{
 }
 
 .card-body{
-    font-size: 1vw;
+    font-size: 1.15vw;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
 }
 
 .imageDirectoryProfiles{
     width:120%;
     height:100%;
+    vertical-align: center;
+    /* width: 100%;
+    max-width: 120%;
+    height: auto; */
+}
+
+.card-header img{
+    border: 5px solid #F9DB22;
 }
 
 .card-block{
     margin-left: 5%;
+    font-size: 1em;
 }
 
 #directorySearch{
@@ -109,13 +124,37 @@ body{
     display: none;
 }
 
+.de2{
+    display:none;
+}
+@media (min-width: 769px) and (max-width: 991px){
+    .imageDirectoryProfiles{
+        width:170%;
+        height:auto;
+        vertical-align: center;
+        /* width: 100%;
+        max-width: 120%;
+        height: auto; */
+    }
+
+    .card-block{
+        margin-left: 5%;
+        margin-bottom: 1%;
+    }
+
+}
+
 @media (max-width: 768px){
     #directorySearch, #entityFilter{
         display: none;
     }
 
+    .card-block{
+        margin-bottom: 2%;
+    }
+
     .imageDirectoryProfiles{
-        width:50%;
+        width:40%;
         height:100%;
     }
 

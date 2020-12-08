@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
 
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
 header {
 	background-color: #89AB0D;
 }
@@ -18,15 +22,53 @@ section {
 /* ------------------------------------------
 					NAVBAR 
 ------------------------------------------- */
+.navbar {
+	font-family: 'Arima Madurai', cursive;
+	font-weight: bold;
+	font-size: 1.10em;
+}
 
 .navbar-title {
-	font-family: 'Arima Madurai', cursive;
 	font-weight: bolder;
 	font-size: 2em;
 }
 
+#language {
+	background-color: rgb(235, 235, 235);
+}
+
 .search {
+	font-family: 'Roboto', sans-serif;
+	margin-left: 1vw;
 	margin-right: 1vw;
+}
+
+.search a, #language {
+	color: black;
+}
+
+.dropdown-menu {
+	font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-item:hover {
+	background-color: #F9DB22;
+}
+
+.navbar-title {
+	margin-left: 5%;
+}
+
+#logo-subtitle {
+	margin-left: -25%;
+	font-size: 0.30em;
+}
+
+/* Hide the logo subtitle on small devices */
+@media (max-width: 600px) { 
+	#logo-subtitle {
+		display: none;
+	}
 }
 
 /* ------------------------------------------
@@ -47,8 +89,7 @@ section {
 #welcome img {
 	width: 100%;
 	height: 100%;
-
-	//box-shadow: 10px 10px 10px #F9DB22;
+	/* box-shadow: 10px 10px 10px #F9DB22; */
 }
 
 #welcome h1 {
@@ -146,7 +187,18 @@ section {
 ------------------------------------------- */
 
 footer {
+	font-family: "Arima Madurai", cursive;
 	background-color: #89AB0D;
+	margin-top: 80px;
+	line-height: 1.25em;
+}
+
+footer h4 {
+	font-weight: bold;
+}
+
+footer .col-md-4 {
+	padding-left: 5%;
 }
 
 footer .content-top {
@@ -160,4 +212,30 @@ footer .copyright {
 
 footer a {
 	color: white;
+}
+
+footer a:hover {
+	color: #F9DB22;
+}
+
+footer p {
+	display: inline;
+}
+
+footer .btn {
+	border: 1px solid white;
+}
+
+footer .btn:hover {
+	background-color: #F9DB22;
+}
+
+#email {
+	font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 575px) { 
+	#stay-connected {
+		margin-top: 40px;
+	}
 }
