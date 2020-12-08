@@ -37,6 +37,9 @@ section {
 	font-family: 'Arima Madurai', cursive;
 }
 
+.carous-img {
+}
+
 /* ------------------------------------------
 					WELCOME 
 ------------------------------------------- */
@@ -55,6 +58,16 @@ section {
 
 .welcome-img {
 	text-align: center;
+}
+
+@media (max-width: 425px) {
+	#welcome {
+		text-align: center;
+	}
+
+	.welcome-text {
+		margin-top: 3vh;
+	}
 }
 
 /* ------------------------------------------
@@ -93,6 +106,12 @@ section {
 #ofTheMonth h3 {
 	font-family: 'Arima Madurai', cursive;
 	color: #89AB0D;
+}
+
+@media (max-width: 425px) {
+	.youth {
+		margin-top: 5vh;
+	}
 }
 
 /* ------------------------------------------
