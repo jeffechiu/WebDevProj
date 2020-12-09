@@ -1,3 +1,4 @@
+// function to search for directory members for laptop and tablet
 function search(){
     
     var input = document.getElementById("myInput");
@@ -71,6 +72,7 @@ function search(){
     return;
 }
 
+// function to search for directory members on phone
 function search2(){
     
     var input = document.getElementById("myInput2");
@@ -162,6 +164,8 @@ function search2(){
     return;
 }
 
+// function to filter directory members based on the 4 tabs (all, person, business, nonprofit)
+// for laptop and tablet
 function filterEntities(id){
     // window.onclick = e => {
         
@@ -222,6 +226,8 @@ function filterEntities(id){
     return;
 }
 
+// function to filter directory members based on the 4 tabs (all, person, business, nonprofit)
+// for phone 
 function filterEntities2(id){
 
     // window.onclick = e => {
