@@ -1,370 +1,350 @@
-<!-- This is the directory page with filtered search and pagination. Everything is centered.
+<!-- Denis Ebby -->
+<!-- This is the Directory page with filtered search and pagination. Everything is centered.
 The main card class used is directoryEntry. I separated out javascript components for 
 phone vs laptop/tablet. For the phone, there is an expandable search bar to work with the limited space. -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/directoryStyle.css"> 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/expandableSearch.css">
-
-    <!-- For Social Media Icons -->
-    <script src="https://kit.fontawesome.com/2a5cb01253.js" crossorigin="anonymous"></script>
-
-    <title>Braddock Directory</title>
-  </head>
-  <!-- ensure that when clicking anywhere in body, drop down menu closes for search -->
-  <body>
-    <header>
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark-green">
-          
-            <a class="navbar-brand navbar-title" href="#">BRCC<br><p id="logo-subtitle">Braddock Region Chamber of Commerce</p></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-    
-             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-               <ul class="navbar-nav">
-                   <li class="nav-item">
-                       <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link" href="#">About</a>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link" href="#">Jobs</a>
-                     </li>
-                     <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle" href="resources.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Resources
-                       </a>
-                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMe nuLink">
-                        <a class="dropdown-item" href="resources.html">Starting a Business</a>
-                        <a class="dropdown-item" href="resources.html#starting-nonprofit">Starting a Nonprofit</a>
-                        <a class="dropdown-item" href="resources.html#criminal-record-recovery">Recovering From Criminal Records</a>
-                             <a class="dropdown-item" href="resources.html#recent-news">Recent News and Events</a>
-                       </div>
-                     </li>
-                     <li class="nav-item active">
-                         <a class="nav-link" href="directory.html">Directory</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="dashboard.html">Login</a>
-                     </li>
-               </ul> 
-               <form class="form-inline search">
-                <div class="input-group">
-                  <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-                  <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon1"><a href="#"><i class='fas fa-search'></i></a></span>
-                  </div>
-                </div>
-              </form>
-              <div class="btn-group">
-                <button class="btn btn-secondary dropdown-toggle" id="language" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    EN
-                </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item">ES</a>
-                    <a class="dropdown-item">中文</a>
-                  </div>
-               </div>
-             </div>
-       </nav>
-     </div>
-    </header>
-  
-      <div class = "container">
-        <div class = "row">
-            <div id = "mainHeading" class = "col-xl-12 col-md-12">
-                <h1>Directory</h1>
-            </div>
-      </div>
-
-      <div class="row no-gutters mt-3 align-items-center" id = "directorySearch">
-          <div class="col col-xl-8 col-md-8">
-              <input id = "myInput" class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="Search Directory..." onkeyup = "search()">
-          </div>
-          <div class="col-auto">
-              <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
-                  <i class="fa fa-search"></i>
-              </button>
-          </div>
-      </div>
-
-      <div class="row dropdown" id = "dropdownPhone">
-        <div class = "col-4">
-          <button class="btn btn-secondary dropdown-toggle entity2 entityActive" type="button" id="dropdownMenuButton entityAll" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick = "filterEntities2(this.id)">
-            All
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item entity2" id = "entityPeople" href="#" onclick = "filterEntities2(this.id)">People</a>
-            <a class="dropdown-item entity2" id = "entityNonprofits" href="#" onclick = "filterEntities2(this.id)">Non-Profits</a>
-            <a class="dropdown-item entity2" id = "entityBusinesses" href="#" onclick = "filterEntities2(this.id)">Businesses</a>
-          </div>
-        </div>
-
-        <div class = "col-4">
-      
-            <input type="text" id = "myInput2" class="search-focus" name="" placeholder="Search here..." onkeyup = "search2()">
-
-        </div>
-       
-      </div>
-     
-      
-
-        <div class = "row" id = "entityFilter">
-            <div class="card col-xl-2 col-md-2 entity entityActive" id = "entityAll" onclick = "filterEntities(this.id)">
-                <div class="card-body">All</div>
-            </div>
-            <div class="card col-xl-2 col-md-2 entity" id = "entityPeople" onclick = "filterEntities(this.id)">
-                <div class="card-body">People</div>
-            </div>
-            <div class="card col-xl-2 col-md-2 entity" id = "entityNonprofits" onclick = "filterEntities(this.id)">
-                <div class="card-body">Non-Profits</div>
-            </div>
-            <div class="card col-xl-2 col-md-2 entity" id = "entityBusinesses" onclick = "filterEntities(this.id)">
-                <div class="card-body">Businesses</div>
-            </div>
-        </div>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
         
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="css/directoryStyle.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/expandableSearch.css" />
 
-        <div class = "row directoryEntry directoryEntryNonprofit">
-            <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-                <div class="card-header border-0 col-xl-2 col-md-2">
-                    <img src="imgs/directory-imgs/AMVETS_Logo.png" class = "imageDirectoryProfiles" alt="">
-                    
+        <!-- For Social Media Icons -->
+        <script src="https://kit.fontawesome.com/2a5cb01253.js" crossorigin="anonymous"></script>
+
+        <title>Braddock Directory</title>
+    </head>
+    <!-- ensure that when clicking anywhere in body, drop down menu closes for search -->
+    <body>
+        <header>
+            <div class="container">
+                <!-- Bootstrap Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark-green">
+                    <a class="navbar-brand navbar-title" href="#">BRCC<br /><p id="logo-subtitle">Braddock Region Chamber of Commerce</p></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Jobs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="resources.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Resources
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMe nuLink">
+                                    <a class="dropdown-item" href="resources.html">Starting a Business</a>
+                                    <a class="dropdown-item" href="resources.html#starting-nonprofit">Starting a Nonprofit</a>
+                                    <a class="dropdown-item" href="resources.html#criminal-record-recovery">Recovering From Criminal Records</a>
+                                    <a class="dropdown-item" href="resources.html#recent-news">Recent News and Events</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="directory.html">Directory</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="dashboard.html">Login</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline search">
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon1"><a href="#"><i class="fas fa-search"></i></a></span>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle" id="language" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                EN
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">ES</a>
+                                <a class="dropdown-item">中文</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Directory Main Section -->
+        <div class="container">
+            <div class="row">
+                <div id="mainHeading" class="col-xl-12 col-md-12">
+                    <h1>Directory</h1>
                 </div>
-                <div class="card-block px-2 col-xl-8 col-md-8">
-                    <h4 class="card-title">AMVETS</h4>
-                    <p class="card-text">1135 Wolfe Ave, Braddock, PA,</p>
-                    <p class="card-text">(412) 823 - 4410 | help@amvetspa.org</p>
+            </div>
+
+            <div class="row no-gutters mt-3 align-items-center" id="directorySearch">
+                <div class="col col-xl-8 col-md-8">
+                    <!-- JS Search -->
+                    <input id="myInput" class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="Search Directory..." onkeyup="search()"/>
                 </div>
-              
+                <div class="col-auto">
+                    <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row dropdown" id="dropdownPhone">
+                <div class="col-4">
+                    <button class="btn btn-secondary dropdown-toggle entity2 entityActive" type="button" id="dropdownMenuButton entityAll" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="filterEntities2(this.id)">
+                        All
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- JS Filter Mobile -->
+                        <a class="dropdown-item entity2" id="entityPeople" href="#" onclick="filterEntities2(this.id)">People</a>
+                        <a class="dropdown-item entity2" id="entityNonprofits" href="#" onclick="filterEntities2(this.id)">Non-Profits</a>
+                        <a class="dropdown-item entity2" id="entityBusinesses" href="#" onclick="filterEntities2(this.id)">Businesses</a>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <!-- JS Search Mobile -->
+                    <input type="text" id="myInput2" class="search-focus" name="" placeholder="Search here..." onkeyup="search2()"/>
+                </div>
+            </div>
+
+            <!-- JS Filter -->
+            <div class="row" id="entityFilter">
+                <div class="card col-xl-2 col-md-2 entity entityActive" id="entityAll" onclick="filterEntities(this.id)">
+                    <div class="card-body">All</div>
+                </div>
+                <div class="card col-xl-2 col-md-2 entity" id="entityPeople" onclick="filterEntities(this.id)">
+                    <div class="card-body">People</div>
+                </div>
+                <div class="card col-xl-2 col-md-2 entity" id="entityNonprofits" onclick="filterEntities(this.id)">
+                    <div class="card-body">Non-Profits</div>
+                </div>
+                <div class="card col-xl-2 col-md-2 entity" id="entityBusinesses" onclick="filterEntities(this.id)">
+                    <div class="card-body">Businesses</div>
+                </div>
+            </div>
+
+            <!-- Directory Entries w/ Bootstrap Cards -->
+            <div class="row directoryEntry directoryEntryNonprofit">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/AMVETS_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">AMVETS</h4>
+                        <p class="card-text">1135 Wolfe Ave, Braddock, PA,</p>
+                        <p class="card-text">(412) 823 - 4410 | help@amvetspa.org</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row directoryEntry directoryEntryBusiness">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/BellSupply_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Bell Plumbing Supply Company</h4>
+                        <p class="card-text">514 Corey Avenue, Braddock, PA,</p>
+                        <p class="card-text">(412) 351 - 0454 | contact@bellsupply.co</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row directoryEntry directoryEntryNonprofit">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/Braddock_Redux_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Braddock Redux</h4>
+                        <p class="card-text">416 Library Street, Braddock, PA,</p>
+                        <p class="card-text">(412) 913 - 1391 | help@braddockredux.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row directoryEntry directoryEntryPeople">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/Desmond_Lawrence_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Desmond Arnold</h4>
+                        <p class="card-text">Consultant at Deloitte</p>
+                        <p class="card-text">(123) 345-6789 | darnold@deloitte.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row directoryEntry directoryEntryNonprofit">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/GVCS_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Greater Valley Community Services</h4>
+                        <p class="card-text">300 Holland Avenue, Braddock, PA,</p>
+                        <p class="card-text">(412) 351 - 7056 | contact@greatervalley.org</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row directoryEntry directoryEntryPeople">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/John_Fetterman_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">John Fetterman</h4>
+                        <p class="card-text">Lieutenant Governor of Pennsylvania, Former Mayor of Braddock</p>
+                        <p class="card-text">(717) 787 - 3300 | https://johnfetterman.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row de2 directoryEntry directoryEntryPeople">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/Mark_Brown_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Mark Brown</h4>
+                        <p class="card-text">Freshman at University of Pittsburgh, Major: Computer Science</p>
+                        <p class="card-text">(123) 456 - 7890 | markb@upitt.edu</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row de2 directoryEntry directoryEntryBusiness">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/RAH_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Right At Home Care Facility</h4>
+                        <p class="card-text">1514 Electric Avenue, East Pittsburgh, PA,</p>
+                        <p class="card-text">(412) 824 - 0700 | https://www.rightathome.net</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row de2 directoryEntry directoryEntryNonprofit">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/SB_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Steven Breaston Foundation</h4>
+                        <p class="card-text">1735 East Carson Street, North Braddock, PA,</p>
+                        <p class="card-text">info@stevenbreastonfoundation.com | https://stevenbreastonfoundation.com/</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row de2 directoryEntry directoryEntryBusiness">
+                <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
+                    <div class="card-header border-0 col-xl-2 col-md-2">
+                        <img src="imgs/directory-imgs/Teds_Auto_Logo.png" class="imageDirectoryProfiles" alt=""/>
+                    </div>
+                    <div class="card-block px-2 col-xl-8 col-md-8">
+                        <h4 class="card-title">Ted's Auto</h4>
+                        <p class="card-text">225 1st Street, Braddock, PA,</p>
+                        <p class="card-text">(412) 351 - 7717 | http://tedsauto.com/</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JS Pagination -->
+            <div class="row" id="pageNav">
+                <div class="col-xl-1 col-md-1 col-2 goRight">
+                    <button class="link" onclick="showFirstPage()">Prev</button>
+                </div>
+                <div class="col-xl-2 col-md-4 center middlePages">
+                    |
+                    <button class="link" onclick="showFirstPage()">1</button>
+                    <button class="link" onclick="showSecondPage()">2</button>
+                    <button class="link">3</button>
+                    . . .
+                    <button class="link">8</button>
+                    |
+                </div>
+                <div class="col-xl-1 col-md-1 col-2 goLeft">
+                    <button class="link" onclick="showSecondPage()">Next</button>
+                </div>
             </div>
         </div>
 
-        <div class = "row directoryEntry directoryEntryBusiness">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/BellSupply_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Bell Plumbing Supply Company</h4>
-                  <p class="card-text">514 Corey Avenue, Braddock, PA,</p>
-                  <p class="card-text">(412) 351 - 0454 | contact@bellsupply.co</p>
-              </div>
-            
-          </div>
-        </div>
-
-        <div class = "row directoryEntry directoryEntryNonprofit">
-            <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-                <div class="card-header border-0 col-xl-2 col-md-2">
-                    <img src="imgs/directory-imgs/Braddock_Redux_Logo.png" class = "imageDirectoryProfiles" alt="">
+        <!--Footer-->
+        <footer>
+            <div class="container">
+                <div class="content-top row justify-content-around">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Phone: 123-456-7890<br /><br />
+                            Email: contact@brcc.com<br /><br />
+                            Address: 1234 Chamber Rd.<br />
+                            Braddock, PA 15104
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <h4 id="stay-connected">Stay Connected!</h4>
+                        <p>Newsletter Sign-Up:</p>
+                        <form class="signup row g-3">
+                            <div class="col-auto-8">
+                                <input type="email" class="form-control" id="inputEmail2" placeholder="email@example.com"/>
+                            </div>
+                            <div class="col-auto-4">
+                                <button type="submit" class="btn btn-outline-secondary mb-3">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </form>
+                        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
                 </div>
-                <div class="card-block px-2 col-xl-8 col-md-8">
-                    <h4 class="card-title">Braddock Redux</h4>
-                    <p class="card-text">416 Library Street, Braddock, PA,</p>
-                    <p class="card-text">(412) 913 - 1391 | help@braddockredux.com</p>
+                <br />
+                <div class="copyright">
+                    <br />
+                    <p>Copyright © 2020 Braddock Region Chamber of Commerce</p>
                 </div>
-              
             </div>
-        </div>
+        </footer>
 
+        <!-- Optional JavaScript; choose one of the two! -->
 
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
-        <div class = "row directoryEntry directoryEntryPeople">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/Desmond_Lawrence_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Desmond Arnold</h4>
-                  <p class="card-text">Consultant at Deloitte</p>
-                  <p class="card-text">(123) 345-6789 | darnold@deloitte.com</p>
-              </div>
-          </div>
-        </div>
+        <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        -->
 
-        <div class = "row directoryEntry directoryEntryNonprofit">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/GVCS_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Greater Valley Community Services</h4>
-                  <p class="card-text">300 Holland Avenue, Braddock, PA,</p>
-                  <p class="card-text">(412) 351 - 7056 | contact@greatervalley.org</p>
-              </div>
-            
-          </div>
-        </div>
-
-
-        <div class = "row directoryEntry directoryEntryPeople">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/John_Fetterman_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">John Fetterman</h4>
-                  <p class="card-text">Lieutenant Governor of Pennsylvania, Former Mayor of Braddock</p>
-                  <p class="card-text">(717) 787 - 3300 | https://johnfetterman.com</p>
-              </div>
-            
-          </div>
-        </div>
-
-        <div class = "row de2 directoryEntry directoryEntryPeople">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/Mark_Brown_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Mark Brown</h4>
-                  <p class="card-text">Freshman at University of Pittsburgh, Major: Computer Science</p>
-                  <p class="card-text">(123) 456 - 7890 | markb@upitt.edu</p>
-              </div>
-            
-          </div>
-        </div>
-
-        <div class = "row de2 directoryEntry directoryEntryBusiness">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/RAH_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Right At Home Care Facility</h4>
-                  <p class="card-text">1514 Electric Avenue, East Pittsburgh, PA,</p>
-                  <p class="card-text">(412) 824 - 0700 | https://www.rightathome.net</p>
-              </div>
-            
-          </div>
-        </div>
-
-        <div class = "row de2 directoryEntry directoryEntryNonprofit">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/SB_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Steven Breaston Foundation</h4>
-                  <p class="card-text">1735 East Carson Street, North Braddock, PA,</p>
-                  <p class="card-text">info@stevenbreastonfoundation.com | https://stevenbreastonfoundation.com/</p>
-              </div>
-            
-          </div>
-        </div>
-
-        <div class = "row de2 directoryEntry directoryEntryBusiness">
-          <div class="card directoryCard flex-row flex-wrap col-xl-10 col-md-10">
-              <div class="card-header border-0 col-xl-2 col-md-2">
-                  <img src="imgs/directory-imgs/Teds_Auto_Logo.png" class = "imageDirectoryProfiles" alt="">
-              </div>
-              <div class="card-block px-2 col-xl-8 col-md-8">
-                  <h4 class="card-title">Ted's Auto</h4>
-                  <p class="card-text">225 1st Street, Braddock, PA,</p>
-                  <p class="card-text">(412) 351 - 7717 | http://tedsauto.com/</p>
-              </div>
-            
-          </div>
-        </div>
-
-      
-
-      
-
-        <div class = "row" id = "pageNav">
-          <div class = "col-xl-1 col-md-1 col-2 goRight">
-            <button class="link" onclick = "showFirstPage()">Prev</button>
-          </div>
-          <div class = "col-xl-2 col-md-4 center middlePages">
-            |
-            <button class="link" onclick = "showFirstPage()">1</button>
-            <button class="link" onclick = "showSecondPage()">2</button>
-            <button class="link">3</button>
-            . . .
-            <button class="link">8</button>
-            |
-          </div>
-          <div class = "col-xl-1 col-md-1 col-2 goLeft">
-            <button class="link" onclick = "showSecondPage()">Next</button>
-          </div>
-          
-
-        </div>
-
-
-    </div>
-
-    <!--Footer-->
-		<footer>
-			<div class="container">
-				<div class="content-top row justify-content-around">
-					<div class="col-md-4 col-sm-12 col-12">
-						<h4>Contact Us</h4>
-						<p>
-							Phone: 123-456-7890<br><br>
-							Email: contact@brcc.com<br><br>
-							Address: 1234 Chamber Rd.<br>
-							Braddock, PA 15104
-						</p>
-					</div>
-
-					<div class="col-md-4 col-sm-12 col-12">
-						<h4 id="stay-connected">Stay Connected!</h4>
-						<p>Newsletter Sign-Up:</p>
-						<form class="signup row g-3">
-                <div class="col-auto-8">
-                  <input type="email" class="form-control" id="inputEmail2" placeholder="email@example.com">
-                </div>
-                <div class="col-auto-4">
-                <button type="submit" class="btn btn-outline-secondary mb-3">Sign Up</button>
-              </div>
-                
-            </form>
-						<a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
-						<a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-						<a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-					</div>
-				</div><br>
-				<div class="copyright">
-					<br>
-					<p>Copyright © 2020 Braddock Region Chamber of Commerce </p>
-				</div>
-			</div>
-		</footer>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  
-
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
-  
-    <!-- Javascript files used -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script type = "text/javascript" src = "js/directory.js"></script>  
-  </body>
+        <!-- Javascript files used -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/directory.js"></script>
+    </body>
 </html>

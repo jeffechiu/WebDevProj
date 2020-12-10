@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-/* Colors   (gold) #F9DB22;
-    (light yellow) #f7f14a;
-     (light green) #a4cc44;
-     (dark green) #89AB0D; */
 
-/* body{
-    background-color: #a4cc44;
-} */
 #mainHeading{
     margin-top: 2em;
 }
@@ -16,7 +9,6 @@
     font-size: 400%;
     font-weight: 600;
     font-family: 'Arima Madurai';
-   
 }
 
 .center{
@@ -35,6 +27,10 @@
 .container, .row{
     justify-content: center;
 }
+
+/* ------------------------------------------
+			   Directory Cards
+------------------------------------------- */
 
 .directoryCard{
     margin: 0.75em;
@@ -83,8 +79,20 @@
     font-size: 1em;
 }
 
+/* ------------------------------------------
+			   Directory Filter
+------------------------------------------- */
+
 #directorySearch{
     margin-top: 2em;
+}
+
+#dropdownPhone{
+    display: none;
+}
+
+.de2{
+    display:none;
 }
 
 #entityFilter{
@@ -109,6 +117,9 @@
     background-color: #F9DB22;
 }
 
+/* ------------------------------------------
+				Pagination
+------------------------------------------- */
 
 #pageNav button{
     background:none;
@@ -120,13 +131,10 @@
     color: #89AB0D;
 }
 
-#dropdownPhone{
-    display: none;
-}
+/* ------------------------------------------
+				Media Queries
+------------------------------------------- */
 
-.de2{
-    display:none;
-}
 @media (min-width: 768px) and (max-width: 991px){
     .imageDirectoryProfiles{
         width:170%;

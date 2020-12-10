@@ -6,10 +6,17 @@ h1 {
     text-align: center;
 }
 
-.play {
-    width: 60px;
-    display: block;
-    margin: auto;
+#first-row, #second-row {
+    margin-top: 40px;
+}
+
+/* ------------------------------------------
+					Cards 
+------------------------------------------- */
+.card {
+    background-color: #A4CC44;
+    border: 1px solid #000000;
+    padding: 10px;
 }
 
 .card-header {
@@ -30,6 +37,16 @@ img {
     border: 5px solid #F9DB22; 
 }
 
+/* ------------------------------------------
+				   Classes 
+------------------------------------------- */
+
+.play {
+    width: 60px;
+    display: block;
+    margin: auto;
+}
+
 .progress {
     border: 1px solid #000000;
 }
@@ -40,19 +57,17 @@ img {
     border-right: 1px solid #000000; 
 }
 
-.card {
-    background-color: #A4CC44;
-    border: 1px solid #000000;
-    padding: 10px;
-}
+/* ------------------------------------------
+				   Calendar 
+------------------------------------------- */
 
 iframe {
     width: 90%;
 }
 
-#first-row, #second-row {
-    margin-top: 40px;
-}
+/* ------------------------------------------
+				Media Queries 
+------------------------------------------- */
 
 @media (min-width: 576px) { 
     #events {
